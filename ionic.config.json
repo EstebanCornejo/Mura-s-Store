@@ -1,0 +1,7 @@
+{
+  "name": "MuraStore",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
