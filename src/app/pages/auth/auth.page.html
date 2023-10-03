@@ -34,12 +34,12 @@
 
       <p class="ion-text-end" routerLink="forgot-password">¿Olvidaste tu contraseña?</p>
 
-      <ion-button  expand="block" class="submit" type="submit" [disabled]="form.invalid">
+      <ion-button  expand="block" class="submit" mode="ios" type="submit" [disabled]="form.invalid">
         Ingresar
         <ion-icon slot="end" name="log-in-outline"></ion-icon>
       </ion-button>
 
-      <ion-button class="ion-margin-top" routerLink="sign-up"   expand="block" fill="outline">
+      <ion-button class="ion-margin-top" mode="ios" routerLink="sign-up"   expand="block" fill="outline">
         Regístrate
         <ion-icon slot="end" name="person-add-outline"></ion-icon>
       </ion-button>

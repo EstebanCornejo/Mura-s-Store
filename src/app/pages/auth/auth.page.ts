@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/models/user.model';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-auth',
@@ -14,14 +16,18 @@ export class AuthPage implements OnInit {
     password: new FormControl('', [Validators.required])
   })
 
-  constructor() { }
+  constructor(private firebaseSvc: FirebaseService) {
+  }
+  //firebaseSvc = Inject(FirebaseService);
 
   ngOnInit() {
   }
 
 
   submit() {
-    console.log(this.form.value);
+    this.firebaseSvc.signIn(this.form.value as User).then(res =>{
+      console.log(res);
+    })
   }
 
 }
