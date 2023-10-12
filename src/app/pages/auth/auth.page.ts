@@ -32,7 +32,7 @@ export class AuthPage implements OnInit {
       const loading = await this.utilsSvc.loading();
       await loading.present();
     this.firebaseSvc.signIn(this.form.value as User).then(res =>{
-      console.log(res);
+      this.getUserInfo(res.user.uid);
     }).catch(error =>{
       console.log(error);
 
@@ -48,6 +48,55 @@ export class AuthPage implements OnInit {
       loading.dismiss();
     })
   }
+
+
+  
+}
+
+async getUserInfo(uid: string) {
+  if (this.form.valid) {
+    const loading = await this.utilsSvc.loading();
+    await loading.present();
+
+    let path = `users/${uid}` ;
+    
+  try{
+      this.firebaseSvc.getDocument(path).then((user: User) => {
+      this.utilsSvc.saveInLocalStorage('user', user)
+      this.utilsSvc.routerLink('/main/home');
+      this.form.reset();
+      console.log('exito');
+      this.utilsSvc.presentToast({
+        message: `Te damos la bienvenida ${user.name}`,
+        duration: 1500,
+        color: 'primary',
+        position: 'middle',
+        icon: 'person-circle-outline'
+      })
+    }
+
+    //const updateResponse =  await this.firebaseSvc.updateUser(this.form.value.name);
+    
+
+
+
+  )}
+    catch(e){
+    if(e instanceof Error){
+      this.utilsSvc.presentToast({
+        message: e.message,
+        duration: 2500,
+        color: 'primary',
+        position: 'middle',
+        icon: 'alert-circle-outline'
+      })
+    }
+    console.log('err');
+  }
+  finally{
+    loading.dismiss();
+  }
+}
 
 }
 }

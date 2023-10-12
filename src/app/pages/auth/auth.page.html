@@ -5,6 +5,7 @@
     <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
       <app-logo></app-logo>
 
+      <!--============================ Email ==========================-->
       <app-custom-input 
       autocomplete="email"
       icon="mail-outline"
@@ -21,6 +22,7 @@
 
       </div>
   
+      <!--============================ Contraseña ==========================-->
       <app-custom-input 
       [control]="form.controls.password"
       icon="lock-closed-outline"
