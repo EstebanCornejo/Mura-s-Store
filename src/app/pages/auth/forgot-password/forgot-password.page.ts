@@ -29,35 +29,24 @@ export class ForgotPasswordPage implements OnInit {
     if (this.form.valid) {
       const loading = await this.utilsSvc.loading();
       await loading.present();
-      
-    }try{
-      const sendEmail = this.firebaseSvc.sendRecoveryEmail(this.form.value.email).then(async error =>{
-        console.log(error);
-  
-      await sendEmail;
+    this.firebaseSvc.sendRecoveryEmail(this.form.value.email).then(res =>{
+
+    }).catch(error =>{
+      console.log(error);
+
+      this.utilsSvc.presentToast({
+        message: error.message,
+        duration: 2500,
+        color: 'primary',
+        position: 'middle',
+        icon: 'alert-circle-outline'
+      })
 
     }).finally(() => {
-
+      loading.dismiss();
     })
-    }catch(e){
-      if(e instanceof Error){
-        this.utilsSvc.presentToast({
-          message: e.message,
-          duration: 2500,
-          color: 'primary',
-          position: 'middle',
-          icon: 'alert-circle-outline'
-        })
-      }
-      console.log('err');
-    }
-    finally{
-    }
-  
+  }
 
 
-  
 }
-
-
 }

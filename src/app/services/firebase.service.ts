@@ -41,7 +41,8 @@ export class FirebaseService {
       // ============== enviar email para restablecer contraseña ===============
 
   async sendRecoveryEmail(email: string){
-    return await sendPasswordResetEmail(getAuth(), email);
+    return await this.auth.sendPasswordResetEmail(email);
+    //return await sendPasswordResetEmail(getAuth(), email);
   }
 
 
