@@ -18,6 +18,10 @@ export class FirebaseService {
 
 // ====================== Autenticación =====================
 
+  getAuth() {
+    return getAuth();
+  }
+
       // ============== Acceder ===============
 
   async signIn(user: User) {
