@@ -4,6 +4,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, up
 import { User } from '../models/user.model';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { getFirestore, setDoc,doc, getDoc } from '@angular/fire/firestore';
+import { UtilsService } from './utils.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,10 @@ import { getFirestore, setDoc,doc, getDoc } from '@angular/fire/firestore';
 export class FirebaseService {
 
   constructor(private auth : AngularFireAuth,
-              private firestore : AngularFirestore) {
-    
-  }
+              private firestore : AngularFirestore,
+              private utilsSvc : UtilsService){
+
+              }
 
 
 // ====================== Autenticación =====================
@@ -47,6 +49,12 @@ export class FirebaseService {
   async sendRecoveryEmail(email: string){
     return await this.auth.sendPasswordResetEmail(email);
     //return await sendPasswordResetEmail(getAuth(), email);
+  }
+
+  signOut() {
+    this.auth.signOut();
+    localStorage.removeItem('user');
+    this.utilsSvc.routerLink('/auth');
   }
 
 
