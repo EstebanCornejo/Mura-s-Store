@@ -16,17 +16,11 @@ export class NoAuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
       
-
-      return new Promise((resolve) => {
-        this.firebaseSvc.getAuth().onAuthStateChanged((auth) => {
-          if (!auth) resolve(true);
-          
-          else{
-            this.utilsSvc.routerLink('/main/auth');
-            resolve(false);
-          }
-        })
-      });
+      if (localStorage.getItem("ingresado")){
+        return false;
+      }else{
+        return true;
+      }
 
 
 

@@ -63,6 +63,7 @@ async getUserInfo(uid: string) {
   try{
       this.firebaseSvc.getDocument(path).then((user: User) => {
       this.utilsSvc.saveInLocalStorage('user', user)
+      localStorage.setItem("ingresado", "true");
       this.utilsSvc.routerLink('/main/home');
       this.form.reset();
       console.log('exito');
@@ -95,6 +96,7 @@ async getUserInfo(uid: string) {
   }
   finally{
     loading.dismiss();
+    
   }
 }
 
