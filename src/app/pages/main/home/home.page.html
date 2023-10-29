@@ -1,7 +1,21 @@
 <app-header title="inicio"></app-header>
 
 
+<div>
+  <ion-title>Productos recomendados</ion-title>
+  <ion-list>
+    <ion-item *ngFor="let product of products">
+      <ion-avatar slot="start">
+        <img src="{{product.img}}" alt=""></ion-avatar>
+      <ion-label>{{product.name}}   </ion-label>
+      <ion-label slot="end">${{product.price}}</ion-label>
+
+    </ion-item>
+  </ion-list>
+</div>
+
 <ion-content>
+
 
 
   <!--========== Nuevo Producto ==========-->
