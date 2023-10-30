@@ -4,13 +4,43 @@
 <div>
   <ion-title>Productos recomendados</ion-title>
   <ion-list>
+    <ion-card>
     <ion-item *ngFor="let product of products">
       <ion-avatar slot="start">
         <img src="{{product.img}}" alt=""></ion-avatar>
-      <ion-label>{{product.name}}   </ion-label>
+      <ion-label id="modal-trigger">{{product.name}}   </ion-label>
+      <ion-card-content>
+      
+      
       <ion-label slot="end">${{product.price}}</ion-label>
+      <!-- modal -->
+    <!-- <ion-modal trigger="modal-trigger" #modal >
+      <ion-header>
 
+    
+            <img src="{{product.img}}" alt="">
+          <ion-title>{{product.name}}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeModal()">Cerrar</ion-button>
+          </ion-buttons>
+
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-card id="card">
+          <ion-card-content id="card-content">
+            <div>
+              <ion-label slot="end">${{product.price}}</ion-label>
+              <ion-label>{{product.description}}</ion-label>
+            </div>
+        </ion-card-content>
+        </ion-card>
+      </ion-content>
+  </ion-modal> -->
+    </ion-card-content>
     </ion-item>
+
+  
+  </ion-card>
   </ion-list>
 </div>
 
@@ -24,4 +54,10 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
 </ion-content>
+
+<ion-content>
+  <app-footer></app-footer>
+</ion-content>
+

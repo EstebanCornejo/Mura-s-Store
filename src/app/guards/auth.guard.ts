@@ -19,6 +19,7 @@ export class AuthGuard implements CanActivate {
       
           if (localStorage.getItem("ingresado")){
             return true;
+            
           }else{
             return false;
           }

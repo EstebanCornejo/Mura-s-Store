@@ -1,13 +1,10 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header backButton="/main/home" title="Perfíl"></app-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+
+<ion-button (click)="signOut()" expand="block" class="submit" mode="ios" fill="clear" vertical="bottom" shape="round">
+  Cerrar Sesión
+</ion-button>
+<ion-content>
+  <app-footer></app-footer>
 </ion-content>
