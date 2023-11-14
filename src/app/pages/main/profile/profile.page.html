@@ -1,8 +1,14 @@
 <app-header backButton="/main/home" title="Perfíl"></app-header>
 
+<ion-content>
+<img src="../../../../assets/SlayersMark.png" shape="round">
+  <ion-label>Usuario:{{name}}</ion-label>
+  <br>
+  <ion-label>Email:{{email}}</ion-label>
+</ion-content>
 
 
-<ion-button (click)="signOut()" expand="block" class="submit" mode="ios" fill="clear" vertical="bottom" shape="round">
+<ion-button (click)="signOut()" expand="block" class="submit" mode="ios" vertical="bottom" shape="round">
   Cerrar Sesión
 </ion-button>
 <ion-content>

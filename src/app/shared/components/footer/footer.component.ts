@@ -22,8 +22,8 @@ export class FooterComponent  implements OnInit {
     this.utilsSvc.routerLink('/main/home')
   }
 
-  // goToHelp() {
-  //   this.utilsSvc.routerLink('/main/profile')
-  // }
+   goToHelp() {
+     this.utilsSvc.routerLink('/main/help')
+   }
 
 }

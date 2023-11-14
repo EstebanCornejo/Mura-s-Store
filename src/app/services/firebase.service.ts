@@ -21,7 +21,8 @@ export class FirebaseService {
 // ====================== Autenticación =====================
 
   getAuth() {
-    return getAuth();
+    this.auth.currentUser
+    return getAuth().currentUser;
   }
 
       // ============== Acceder ===============

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user.model';
 import { FirebaseService } from 'src/app/services/firebase.service';
@@ -24,8 +24,9 @@ export class AuthPage implements OnInit {
   //utilsSvc = Inject(UtilsService);
 
   ngOnInit() {
-  }
 
+
+  }
 
   async submit() {
     if (this.form.valid) {
@@ -59,7 +60,7 @@ async getUserInfo(uid: string) {
     await loading.present();
 
     let path = `users/${uid}` ;
-    
+
   try{
       this.firebaseSvc.getDocument(path).then((user: User) => {
       this.utilsSvc.saveInLocalStorage('user', user)
