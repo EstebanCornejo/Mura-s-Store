@@ -33,6 +33,16 @@ export class ProductoPage implements OnInit {
 
   }
 
+  agregarCarrito(){
+    this.utilsSvc.presentToast({
+      message: "Producto añadido exitosamente",
+      duration: 2500,
+      color: 'primary',
+      position: 'middle',
+      icon: 'alert-circle-outline'
+    })
+  }
+
 
   getProducts(id:Number){
     this.api.verProductos(id).subscribe(

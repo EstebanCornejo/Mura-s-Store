@@ -1,7 +1,24 @@
 <app-header backButton="/main/home" title="Perfíl"></app-header>
 
 <ion-content>
-<img src="../../../../assets/SlayersMark.png" shape="round">
+<form [formGroup]="form" class="ion-padding ion-text-center">
+    <!-- si existe una imagen-->
+    <ion-avatar *ngIf="form.value.image">
+      <img [src]="form.value.image" />
+    </ion-avatar>
+
+  <!-- si NO existe una imagen-->
+  <ion-icon class="image-icon" *ngIf="!form.value.image" name="image-outline"></ion-icon>
+  <br>
+
+  <!-- tomar/seleccionar foto-->
+  <ion-button (click)="takeImage()" size="small" shape="round">
+      Tomar/Seleccionar
+  </ion-button>
+</form>
+  <br>
+  <br>
+  <br>
   <ion-label>Usuario: {{name}}</ion-label>
   <br>
   <br>
@@ -9,18 +26,22 @@
   <br>
   <br>
   <ion-label>Admin: {{admin}}</ion-label>
-</ion-content>
+  <br>
 
-<!--========== Nuevo Producto ==========-->
-  <ion-button (click)="addUpdateProduct()" shape="round">
+
+  <!--========== Nuevo Producto ==========-->
+  <ion-button (click)="addUpdateProduct()" shape="round" display="center">
     <ion-label>Añadir Productos</ion-label>
     <ion-icon name="add"></ion-icon>
   </ion-button>
 <ion-button (click)="signOut()" expand="block" class="submit" mode="ios" vertical="bottom" shape="round">
   Cerrar Sesión
 </ion-button>
-
-
-<ion-content>
-  <app-footer></app-footer>
 </ion-content>
+
+
+
+
+
+  <app-footer></app-footer>
+

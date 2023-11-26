@@ -1,7 +1,10 @@
 <app-header backButton="/main/home" title="Ayuda"></app-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
   
+  <H1> Preguntas frecuentes
+  </H1>
+
     <ion-accordion-group [multiple]="true" >
         <ion-accordion value="first">
           <ion-item slot="header" color="primary">
@@ -43,6 +46,5 @@
       
 
 </ion-content>
-<ion-content>
+
   <app-footer></app-footer>
-</ion-content>

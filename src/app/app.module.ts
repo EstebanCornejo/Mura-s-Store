@@ -27,7 +27,7 @@ import { HomePageModule } from './pages/main/home/home.module';
     AngularFireAuthModule,
     HttpClientModule,
     ProductoPageModule,
-    HomePageModule,
+    HomePageModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

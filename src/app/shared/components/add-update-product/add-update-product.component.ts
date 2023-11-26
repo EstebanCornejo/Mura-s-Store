@@ -17,7 +17,8 @@ export class AddUpdateProductComponent  implements OnInit {
     image: new FormControl('', [Validators.required,]),
     name: new FormControl('', [Validators.required, Validators.minLength(4)]),
     price: new FormControl('', [Validators.required, Validators.min(0)]),
-    soldUnits: new FormControl('', [Validators.required, Validators.min(0)])
+    description: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    type: new FormControl('', [Validators.required, Validators.minLength(1)])
   })
 
   constructor(private firebaseSvc: FirebaseService,
@@ -36,42 +37,20 @@ export class AddUpdateProductComponent  implements OnInit {
     this.form.controls.image.setValue(dataUrl);
   }
 
-
-  async submit() {
-    if (this.form.valid) {
-      const loading = await this.utilsSvc.loading();
-      await loading.present();
-
-        
-    try{
-      const signResponse = await this.firebaseSvc.signIn(this.form.value as User)
-
-      // let uid = signResponse.user.uid;   
- 
-      //const updateResponse =  await this.firebaseSvc.updateUser(this.form.value.name);
-      console.log('exito');
-    }
-    catch(e){
-      if(e instanceof Error){
-        this.utilsSvc.presentToast({
-          message: e.message,
-          duration: 2500,
-          color: 'primary',
-          position: 'middle',
-          icon: 'alert-circle-outline'
-        })
-      }
-      console.log('err');
-    }
-    finally{
-      loading.dismiss();
-    }
+  crearProducto(){
+    this.utilsSvc.presentToast({
+      message: "Producto creado exitosamente",
+      duration: 2500,
+      color: 'primary',
+      position: 'middle',
+      icon: 'alert-circle-outline'
+    })
+    this.form.reset();
   }
 
-}
+  }
+  
 
 
-
-}
 
 
