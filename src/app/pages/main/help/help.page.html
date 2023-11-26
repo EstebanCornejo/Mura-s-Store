@@ -2,6 +2,47 @@
 
 <ion-content>
   
-  
+    <ion-accordion-group [multiple]="true" >
+        <ion-accordion value="first">
+          <ion-item slot="header" color="primary">
+            <ion-label>¿Cómo puedo realizar una compra?</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">Para realizar una compra, simplemente navegue por nuestra tienda, seleccione los mangas que desea comprar y agréguelos al carrito. Luego, siga los pasos del proceso de pago para completar su compra.</div>
+        </ion-accordion>
+        <ion-accordion value="second">
+          <ion-item slot="header" color="primary">
+            <ion-label>¿Cuáles son los métodos de pago aceptados?</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">Aceptamos varias formas de pago, incluyendo tarjetas de crédito/débito (Visa, MasterCard, American Express) y otros métodos de pago en línea seguros.</div>
+        </ion-accordion>
+        <ion-accordion value="third">
+          <ion-item slot="header" color="primary">
+            <ion-label>¿Cuánto tiempo tardará en llegar mi pedido?</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">El tiempo de entrega depende de su ubicación y del método de envío seleccionado. Proporcionamos estimaciones de tiempo de entrega durante el proceso de compra.</div>
+        </ion-accordion>
+        <ion-accordion value="fourth">
+            <ion-item slot="header" color="primary">
+              <ion-label>¿Qué hago si recibo un artículo dañado o incorrecto?</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">En caso de recibir un artículo dañado o incorrecto, contáctenos de inmediato a través de nuestro servicio de atención al cliente. Le proporcionaremos una solución lo antes posible.</div>
+          </ion-accordion>
+          <ion-accordion value="fifth">
+            <ion-item slot="header" color="primary">
+              <ion-label>¿Ofrecen devoluciones o reembolsos?</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">Sí, aceptamos devoluciones en casos de artículos defectuosos o incorrectos. Consulte nuestra política de devoluciones para obtener más detalles.</div>
+          </ion-accordion>
+          <ion-accordion value="sixth">
+            <ion-item slot="header" color="primary">
+              <ion-label>¿Tienen programas de descuento o membresía?</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">Sí, regularmente ofrecemos promociones y descuentos especiales. También puede suscribirse a nuestra membresía para obtener beneficios exclusivos.</div>
+          </ion-accordion>
+      </ion-accordion-group>
+      
 
+</ion-content>
+<ion-content>
+  <app-footer></app-footer>
 </ion-content>

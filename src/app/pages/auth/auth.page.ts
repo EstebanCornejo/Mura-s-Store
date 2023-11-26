@@ -65,6 +65,12 @@ async getUserInfo(uid: string) {
       this.firebaseSvc.getDocument(path).then((user: User) => {
       this.utilsSvc.saveInLocalStorage('user', user)
       localStorage.setItem("ingresado", "true");
+      
+      if (this.form.value.email === "est3fanoxd@gmail.com") {
+        localStorage.setItem("admin", "true");
+      }else{
+        localStorage.setItem("admin", "false");
+      }
       this.utilsSvc.routerLink('/main/home');
       this.form.reset();
       console.log('exito');

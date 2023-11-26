@@ -5,6 +5,9 @@ import { UtilsService } from 'src/app/services/utils.service';
 import { AddUpdateProductComponent } from 'src/app/shared/components/add-update-product/add-update-product.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import type { IonModal } from '@ionic/angular';
+import { Product } from 'src/app/models/user.model';
+import { ApiService } from 'src/app/services/api.service';
+
 
 @Component({
   selector: 'app-home',
@@ -17,7 +20,8 @@ export class HomePage implements OnInit {
   constructor(private auth : AngularFireAuth,
     private firebaseSvc : FirebaseService,
     private utilsSvc : UtilsService,
-    private http:HttpClient){
+    private http:HttpClient,
+    private api: ApiService) {
 
 
     }
@@ -30,15 +34,40 @@ export class HomePage implements OnInit {
     this.modal.dismiss();
   }
 
+  // getProducts() {
+  //   const url = "https://apitiendamura-default-rtdb.firebaseio.com/products.json"
+  //   this.http.get(url).subscribe(
+  //     (data: any) =>{
+  //       this.products = Object.values(data);
+  //       console.log("productos", this.products)
+  //     }
+  //   )
+  // }
+
   getProducts() {
-    const url = "https://apitiendamura-default-rtdb.firebaseio.com/products.json"
-    this.http.get(url).subscribe(
-      (data: any) =>{
-        this.products = Object.values(data);
-        console.log("productos", this.products)
-      }
-    )
+    this.api.listarProductos().subscribe((res)=>{
+      let listString=JSON.stringify(res)
+      this.products=JSON.parse(listString)
+      console.log(this.products)
+  },
+    (err)=>{
+      console.log(err.message)
+    })
   }
+
+  // verProducts(id:String){
+  //   return this.http.get<Product>('https://apitiendamura-default-rtdb.firebaseio.com/products.json/'+id)
+  // }
+
+  // creaProducts(newProduct:Product) {
+  //   const url = "https://apitiendamura-default-rtdb.firebaseio.com/products.json/"
+  //   this.http.post<Product>(url, newProduct).subscribe(
+  //     (data: any) =>{
+  //       this.products = Object.values(data);
+  //       console.log("productos", this.products)
+  //     }
+  //   )
+  // }
 
 
   

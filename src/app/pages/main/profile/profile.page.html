@@ -2,15 +2,25 @@
 
 <ion-content>
 <img src="../../../../assets/SlayersMark.png" shape="round">
-  <ion-label>Usuario:{{name}}</ion-label>
+  <ion-label>Usuario: {{name}}</ion-label>
   <br>
-  <ion-label>Email:{{email}}</ion-label>
+  <br>
+  <ion-label>Email: {{email}}</ion-label>
+  <br>
+  <br>
+  <ion-label>Admin: {{admin}}</ion-label>
 </ion-content>
 
-
+<!--========== Nuevo Producto ==========-->
+  <ion-button (click)="addUpdateProduct()" shape="round">
+    <ion-label>Añadir Productos</ion-label>
+    <ion-icon name="add"></ion-icon>
+  </ion-button>
 <ion-button (click)="signOut()" expand="block" class="submit" mode="ios" vertical="bottom" shape="round">
   Cerrar Sesión
 </ion-button>
+
+
 <ion-content>
   <app-footer></app-footer>
 </ion-content>

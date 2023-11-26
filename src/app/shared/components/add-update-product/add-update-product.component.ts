@@ -44,9 +44,9 @@ export class AddUpdateProductComponent  implements OnInit {
 
         
     try{
-      const signResponse = await this.firebaseSvc.signUp(this.form.value as User)
+      const signResponse = await this.firebaseSvc.signIn(this.form.value as User)
 
-      let uid = signResponse.user.uid;   
+      // let uid = signResponse.user.uid;   
  
       //const updateResponse =  await this.firebaseSvc.updateUser(this.form.value.name);
       console.log('exito');

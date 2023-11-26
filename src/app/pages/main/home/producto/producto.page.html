@@ -1,0 +1,48 @@
+<app-header title="Producto" backButton="/main/home"></app-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="product">
+    
+  <!-- <ion-card>
+    <img src="https://cdnx.jumpseller.com/la-fortaleza-punta-arenas1/image/35027270/resize/560/632?1683674874" />
+    <ion-card-header>
+      <ion-card-title slot="">Berserk #1 <ion-button  shape="round">Agregar al carrito</ion-button>
+      </ion-card-title>
+      
+    </ion-card-header>
+  
+    <ion-card-content>
+    Tipo: Manga
+    <br>
+    <br>
+    Precio: $10.000
+    <br>
+    <br>
+    Descripción: Un viaje épico y salvaje a un reino de fantasía. Guts es un guerrero vestido de negro de los pies a la cabeza que porta una gigantesca espada más larga que su propia estatura y un robusto brazo ortopédico de hierro... Berserk es una historia de batallas épicas, de venganzas, de muerte y de luchas por conseguir el poder, por conseguir un nombre en una sociedad noble y despreciativa con las clases “inferiores”.
+    
+    </ion-card-content>
+  </ion-card> -->
+
+  <ion-card>
+    <img src="{{product.img}}" />
+    <ion-card-header>
+      <ion-card-title slot="">{{product.name}} <ion-button  shape="round">Agregar al carrito</ion-button>
+      </ion-card-title>
+      
+    </ion-card-header>
+  
+    <ion-card-content>
+    Tipo: Manga
+    <br>
+    <br>
+    Precio: $10.000
+    <br>
+    <br>
+    Descripción: Un viaje épico y salvaje a un reino de fantasía. Guts es un guerrero vestido de negro de los pies a la cabeza que porta una gigantesca espada más larga que su propia estatura y un robusto brazo ortopédico de hierro... Berserk es una historia de batallas épicas, de venganzas, de muerte y de luchas por conseguir el poder, por conseguir un nombre en una sociedad noble y despreciativa con las clases “inferiores”.
+    
+    </ion-card-content>
+  </ion-card>
+
+  
+</div>
+</ion-content>

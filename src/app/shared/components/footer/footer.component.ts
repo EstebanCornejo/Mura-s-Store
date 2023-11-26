@@ -26,4 +26,8 @@ export class FooterComponent  implements OnInit {
      this.utilsSvc.routerLink('/main/help')
    }
 
+   goToCarrito() {
+    this.utilsSvc.routerLink('/main/carrito')
+   }
+
 }

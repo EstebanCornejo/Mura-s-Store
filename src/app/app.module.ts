@@ -13,6 +13,9 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductoPageModule } from './pages/main/home/producto/producto.module';
+import { CommonModule } from '@angular/common';
+import { HomePageModule } from './pages/main/home/home.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    HttpClientModule
+    HttpClientModule,
+    ProductoPageModule,
+    HomePageModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

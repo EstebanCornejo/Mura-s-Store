@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { CarritoPageRoutingModule } from './carrito-routing.module';
 
-import { HomePage } from './home.page';
+import { CarritoPage } from './carrito.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
-    SharedModule,
+    CarritoPageRoutingModule,
+    SharedModule
   ],
-  declarations: [HomePage]
+  declarations: [CarritoPage]
 })
-export class HomePageModule {}
+export class CarritoPageModule {}
